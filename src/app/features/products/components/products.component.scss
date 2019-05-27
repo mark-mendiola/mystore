@@ -1,0 +1,220 @@
+@import "../../../../globals";
+
+.content-options {
+    display: flex;
+    background: #EEE;
+    padding: 20px 30px;
+    align-items: center;
+    justify-content: space-between;
+}
+.content-option {
+    flex: 1 0;
+    
+    &:last-child {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+.search-field {
+    width: 100%;
+    background: none;
+    padding: 23px 30px;
+    border: 0;
+    margin: -30px;
+    transition: 0.2s ease;
+
+    &:focus {
+        outline: none;
+        background: #F6F6F6;
+    }
+}
+
+.product-list {
+    padding: 20px;
+}
+.products-wrap {
+    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.2);
+    box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+.products {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.product,
+.product-list-headers {
+    display: flex;
+    padding: 20px;
+}
+.product-list-headers {
+    background: #141f31;
+    color: #FFF;
+}
+.products .product:nth-child(even) {
+    background: #F6F6F6;
+}
+.product-info {
+    display: flex;
+    flex: 3 0;
+
+    .mobile-label {
+        display: none;
+    }
+}
+.product-info > *,
+.product-list-header {
+    flex: 1 0;
+}
+.product-list-header {
+    margin: 0;
+}
+.product-price,
+.product-category,
+.product-list-header:nth-child(2),
+.product-list-header:nth-child(3) {
+    text-align: center;
+}
+.product-actions {
+    display: flex;
+    flex: 1 0;
+    align-items: center;
+    justify-content: flex-end;
+
+    a {
+        margin: 0 10px;
+        font-size: 0.85em;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .close-actions, .actions-toggle {
+        display: none;
+    }
+
+    .actions-box {
+        span {
+            display: none;
+        }
+    }
+}
+.no-products {
+    padding: 50px;
+    color: #777;
+    text-align: center;
+
+    img {
+        opacity: 0.3;
+        margin-bottom: 10px;
+    }
+}
+
+@media #{$responsive_tablet_mobile} {
+    .content-options {
+        padding: 20px;
+    }
+    .content-option {
+        &:last-child {
+            flex: initial;
+        }
+    }
+    .search-field {
+        padding: 10px;
+        margin: -10px;
+    }
+    .no-products {
+        padding: 30px 0;
+    }
+    .product-list-headers {
+        display: none;
+    }
+    .product {
+        position: relative;
+        padding: 15px;
+        
+        .close-actions {
+            display: none;
+        }
+
+        &.active {
+            .actions-toggle {
+                display: none;
+            }
+            .close-actions {
+                display: inline;
+            }
+            .actions-box {
+                display: block;
+            }
+        }
+    }
+    .product-info {
+        display: block;
+
+        .product-name {
+            font-weight: 700;
+        }
+        .product-price,
+        .product-category {
+            display: inline-block;
+            text-align: left;
+            font-size: 13px;
+            color: #777;
+        }
+        .product-category {
+            padding-left: 10px;
+            border-left: 1px solid #CCC;
+            margin-left: 10px;
+        }
+        .mobile-label {
+            display: inline;
+        }
+    }
+    .product-actions {
+        .actions-toggle {
+            display: inline;
+        }
+        .actions-box {
+            display: none;
+            position: absolute;
+            top: 85%;
+            right: 0;
+            background: #FFF;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+            padding: 15px;
+            border-radius: 5px;
+            white-space: nowrap;
+            text-align: right;
+
+            span {
+                display: inline;
+                font-size: 0.9em;
+            }
+
+            &::after {
+                display: block;
+                content: "";
+                position: absolute;
+                bottom: 100%;
+                right: 20px;
+                border: 10px solid transparent;
+                border-bottom-color: #FFF;
+            }
+        }
+        .product-action {
+            display: block;
+            margin: 0 0 15px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+            span {
+                margin-right: 10px;
+            }
+            .ng-fa-icon {
+                width: 16px;
+                display: inline-block;
+                text-align: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,49 @@
+@import "../../../../../../../globals";
+
+.image-upload-wrap {
+    position: relative;
+    border: 3px dashed #DDD;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+
+    .field-label {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #777;
+
+        img {
+            opacity: 0.4;
+            margin-bottom: 5px;
+        }
+    }
+    &.has-image .field-label {
+        display: none;
+    }
+    .field {
+        height: 400px;
+        width: 100%;
+    }
+    .image-preview {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 90%;
+        max-height: 90%;
+    }
+}
+
+.field {
+    border: 0;
+    opacity: 0;
+}
+
+@media #{$responsive_tablet_mobile} {
+    .image-upload-wrap .field {
+        height: 200px;
+    }
+}

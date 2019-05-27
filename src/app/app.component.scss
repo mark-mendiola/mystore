@@ -1,0 +1,13 @@
+@import "../globals";
+
+.site-main {
+    margin-left: 20%;
+}
+
+@media #{$responsive_tablet_mobile} {
+
+    .site-main {
+        margin-left: 0;
+    }
+
+}

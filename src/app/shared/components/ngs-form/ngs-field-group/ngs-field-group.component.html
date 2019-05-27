@@ -1,0 +1,22 @@
+<div *ngIf="group && fields" class="form-fields">
+
+    <div *ngFor="let field of fields" class="form-field-wrap">
+
+        <app-ngs-field-group
+            *ngIf="isArray(field)"
+            [name]="name + '_' + i"
+            [group]="group.controls[name + '_' + i]"
+            [fields]="field"
+            (value)="transmitValue($event)"
+        ></app-ngs-field-group>
+
+        <app-ngs-field
+            *ngIf="isObject(field)"
+            [control]="group.controls[field.id + '_wrap']"
+            [field] = "field"
+            (value)="transmitValue($event)"
+        ></app-ngs-field>
+
+    </div>
+
+</div>

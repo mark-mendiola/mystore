@@ -1,0 +1,71 @@
+<div *ngIf="product">
+
+    <!-- The header -->
+    <header class="page-header">
+    
+      <div class="page-heading">
+        <h1 class="page-title">{{product.name}}</h1>
+      </div>
+    
+      <div class="page-options">
+          <div class="page-option">
+              <a (click)="goBack()" class="button has-icon icon-left"><fa-icon [icon]="faArrowLeft"></fa-icon> <span>Back</span></a>
+          </div>
+        <div class="page-option">
+            <a routerLink="/products/{{product.id}}/edit" class="button btn-primary has-icon icon-left"><fa-icon [icon]="faEdit"></fa-icon> <span>Edit</span></a>
+        </div>
+      </div>
+    
+    </header>
+    <!-- End of the header -->
+      
+    <main class="site-main">
+    
+      <div id="content" class="site-content">
+
+          <div class="content-options">
+            <div class="content-option">
+              <strong class="content-option-label">View:</strong>
+              <ul class="view-modes">
+                <li [ngClass]="{'active': view === 'single'}"><a (click)="changeView('single')">Single</a></li>
+                <li [ngClass]="{'active': view === 'list'}"><a (click)="changeView('list')">List</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="content-body">
+            
+            <div class="view-{{view}}">
+              <div id="product">
+                <div class="product-image">
+                  <img [src]="product.image" />
+                </div>
+                <div class="product-info">
+                  <div class="product-info-heading">
+                    <h2 class="product-name">{{product.name}}</h2>
+                    <h2 class="product-price">{{product.price | currency: USD}}</h2>
+                  </div>
+                  <div class="product-desc">{{product.desc}}</div>
+                </div>
+              </div>
+
+              <div class="dummy-products" *ngIf="view === 'list'">
+                <div class="dummy-product">
+                  <div class="product-image"></div>
+                </div>
+                <div class="dummy-product">
+                  <div class="product-image"></div>
+                </div>
+                <div class="dummy-product">
+                  <div class="product-image"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+      </div>
+    
+    </main>
+    
+  </div>

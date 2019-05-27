@@ -1,0 +1,31 @@
+<div [formGroup]="ngsForm" *ngIf="fields" class="form">
+  
+  <div *ngFor="let field of fields; let i = index;" class="field-group">
+
+    <app-ngs-field-group
+      *ngIf="isArray(field)"
+      [name]="'fieldGroup_' + i"
+      [group]="ngsForm.controls['fieldGroup_' + i]"
+      [fields]="field"
+      (value)="transmitData($event)"
+    ></app-ngs-field-group>
+  
+    <app-ngs-field
+      *ngIf="isObject(field)"
+      [control]="ngsForm.controls[field.id + '_wrap']"
+      [field]="field"
+      (value)="transmitData($event)"
+    ></app-ngs-field>
+
+  </div>
+
+  <div class="form-actions" *ngIf="actions">
+    <div class="form-action" *ngFor="let action of actions">
+      <a *ngIf="action.type === 'link'" [class]="'button ' + action.class" [routerLink]="action.link"><fa-icon [icon]="action.icon"></fa-icon> <span>{{action.text}}</span></a>
+      <button *ngIf="action.type === 'button'" [class]="'button ' + action.classes" (click)="triggerCallback($event, action.callback)"><fa-icon [icon]="action.icon"></fa-icon> <span>{{action.text}}</span></button>
+    </div>
+  </div>
+
+</div>
+
+{{ clearForm() }}

@@ -1,0 +1,60 @@
+.importer-wrap {
+    position: relative;
+    background: #f9f9f9;
+    border: 3px dashed #DDD;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin: 0 30px 30px;
+
+    .field-label {
+        display: flex;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        color: #888;
+
+        .ng-fa-icon {
+            margin-bottom: 10px;
+        }
+
+         span {
+             font-size: 0.9em;
+             letter-spacing: 1px;
+             text-transform: uppercase;
+         }
+    }
+
+    .field {
+        width: 100%;
+        height: 400px;
+        visibility: hidden;
+    }
+
+    #product_image {
+        border: 0;
+        opacity: 0;
+    }
+}
+
+.files-list {
+    margin: 0 30px;
+
+    .file {
+        display: flex;
+        position: relative;
+        padding: 15px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        border-radius: 5px;
+        margin-bottom: 10px;
+        justify-content: space-between;
+        font-size: 0.9em;
+
+        .upload-progress-bar {
+            position: absolute;
+        }
+    }
+}

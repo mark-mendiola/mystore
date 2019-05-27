@@ -1,0 +1,47 @@
+<!-- The header -->
+<header class="page-header">
+
+  <div class="page-heading">
+    <h1 class="page-title">{{pageTitle}}</h1>
+  </div>
+
+  <div class="page-options">
+    <div class="page-option">
+      <button class="button has-icon icon-left" (click)="goBack()"><fa-icon [icon]="faTimes"></fa-icon> <span>Cancel</span></button>
+    </div>
+  </div>
+
+</header>
+<!-- End of the header -->
+
+<main class="site-main">
+
+  <div id="content" class="site-content">
+
+    <div id="add_product_form">
+      
+      <div class="form-fields">
+
+        <div class="form-field importer-wrap">
+          <label class="field-label" for="importer">
+            <fa-icon [icon]="faCloudUploadAlt" size="4x"></fa-icon>
+            <span>Click here to upload CSV files</span>
+          </label>
+          <input #importer id="importer" type="file" accept=".csv" class="field field-file" multiple (change)="processFiles(importer.files)" />
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="files-list">
+      <div class="file" *ngFor="let file of files; let i = index">
+        <div class="file-name">{{file.name}}</div>
+        <div class="upload-progress-pct">{{currentFilePct[i]}}</div>
+        <div class="upload-progress-bar"></div>
+      </div>
+    </div>
+
+  </div>
+
+</main>

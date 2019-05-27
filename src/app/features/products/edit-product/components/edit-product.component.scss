@@ -1,0 +1,124 @@
+@import "../../../../../globals";
+
+#edit_product_form {
+    background: #FFF;
+    padding: 10px 30px 50px;
+}
+
+.form-fields {
+    display: flex;
+}
+.fields-section {
+    flex: 1 0;
+    align-items: center;
+}
+.fields-section:last-child {
+    margin-left: 20px;
+    flex: 2 0;
+}
+.form-field {
+    position: relative;
+    margin-bottom: 20px;
+}
+.field-group .form-field {
+    flex: 1 0;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.field-group .form-field:first-child {
+    margin-left: 0;
+}
+.field-group .form-field:last-child {
+    margin-right: 0;
+}
+.form-field .field-label {
+    background: #FFF;
+    padding: 0 10px;
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    color: #777;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.2s ease;
+}
+.form-field .field-label.field-is-active {
+    top: -9px;
+}
+.field {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #DDD;
+}
+
+.product-image-wrap {
+    position: relative;
+    border: 3px dashed #DDD;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+.product-image-wrap .field-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.product-image-wrap.has-image .field-label {
+    display: none;
+}
+.product-image-wrap .field-label img {
+    opacity: 0.4;
+    margin-bottom: 5px;
+}
+.product-image-wrap .field {
+    height: 400px;
+}
+#product_image {
+    border: 0;
+    opacity: 0;
+}
+.product-image-wrap .image-preview {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    max-height: 90%;
+}
+.field-group .product-name-wrap {
+    flex: 2 0;
+    position: relative;
+}
+#product_name {
+    font-weight: 700;
+}
+#product_price {
+    padding-right: 0;
+    font-weight: 700;
+}
+#product_price:hover,
+#product_price:focus {
+    padding-right: 15px;
+}
+#product_desc {
+    height: 200px;
+    resize: none;
+}
+
+@media #{$responsive_tablet_mobile} {
+    .form-fields {
+        display: block;
+    }
+    #edit_product_form {
+        @include mobile_lr_pad();
+    }
+    .product-image-wrap .field {
+        height: 200px;
+    }
+    .fields-section:last-child {
+        margin-left: 0;
+    }
+}

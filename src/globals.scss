@@ -1,0 +1,21 @@
+$responsive_desktop: '(min-width: 769px)';
+$responsive_desktop_tablet: '(min-width: 481px)';
+$responsive_tablet: 'only screen and (min-width: 481px) and (max-width: 768px)';
+$responsive_tablet_mobile: 'only screen and (max-width: 768px)';
+$responsive_mobile: 'only screen and (max-width: 480px)';
+
+@mixin shadow($prop) {
+    -webkit-box-shadow: $prop;
+    box-shadow: $prop;
+}
+
+@mixin menu() {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+@mixin mobile_lr_pad() {
+    padding-left: 20px;
+    padding-right: 20px;
+}

@@ -1,0 +1,36 @@
+<div *ngIf="productCategory">
+
+  <!-- The header -->
+  <header class="page-header">
+
+    <div class="page-heading">
+      <h1 class="page-title">{{pageTitle}} {{productCategory.name}}?</h1>
+    </div>
+  
+  </header>
+  <!-- End of the header -->
+  
+  <main class="site-main">
+  
+    <div id="content" class="site-content">
+
+      <div id="delete_product_category_form">
+        
+        <p>Are you sure you want to delete the product category "{{productCategory.name}}"?</p>
+
+        <div class="form-actions">
+          <div class="form-action">
+            <button class="button btn-primary has-icon icon-left" (click)="deleteProductCategory()"><fa-icon [icon]="faTrash"></fa-icon> <span>Delete</span></button>
+          </div>
+          <div class="form-action">
+            <button class="button has-icon icon-left" (click)="goBack()"><fa-icon [icon]="faTimes"></fa-icon> <span>Cancel</span></button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>

@@ -1,0 +1,9 @@
+<app-header
+    [title]="'Add Product'"
+    [options]="headerOptions"
+    (callbackEmitter)="executeCallback($event)">
+</app-header>
+
+<div id="add_product_form">
+    <app-ngs-form [id]="addProductForm" [fields]="fields" (data)="setData($event)" (callbackEmitter)="executeCallback($event)"></app-ngs-form>
+</div>

@@ -1,0 +1,78 @@
+<!-- The header -->
+<header class="page-header">
+  
+  <div class="page-heading">
+    <h1 class="page-title">{{pageTitle}}</h1>
+  </div>
+
+  <div class="page-options">
+    <div class="page-option">
+      <a #importProducts class="button has-icon icon-left" routerLink="/products/import"><fa-icon [icon]="faUpload"></fa-icon> <span>Import Products</span></a>
+    </div>
+    <div class="page-option">
+      <a #newProduct class="button btn-primary has-icon icon-left" routerLink="/products/add"><fa-icon [icon]="faPlus"></fa-icon> <span>Add Product</span></a>
+    </div>
+  </div>
+
+</header>
+<!-- End of the header -->
+
+<main class="site-main">
+
+  <div id="content" class="site-content">
+
+    <div class="content-options">
+      <div class="content-option">
+        <div class="search">
+          <input #productSearch class="search-field" placeholder="Search for a product..." (input)="searchProducts(productSearch.value)" />
+        </div>
+      </div>
+      <div class="content-option">
+          <pagination [itemsPerPage]="productsPerPage" [totalItems]="totalItems" previousText="&laquo;" nextText="&raquo;" (pageChanged)="pageChanged($event)"></pagination>
+      </div>
+    </div>
+
+    <div class="content-body">
+
+      <div class="product-list">
+        <div *ngIf="products && products.length; else noProducts" class="products-wrap">
+          <div class="product-list-headers">
+            <h4 class="product-list-header">Product Name</h4>
+            <h4 class="product-list-header a-center">Price</h4>
+            <h4 class="product-list-header a-center">Category</h4>
+            <h4 class="product-list-header">&nbsp;</h4>
+          </div>
+          <ul class="products">
+            <li *ngFor="let product of currentProducts" class="product" [ngClass]="{'active': actionProductId === product.id}">
+              <div class="product-info">
+                <div class="product-name"><a routerLink="/products/{{product.id}}">{{product.name}}</a></div>
+                <div class="product-price"><strong class="mobile-label">Price: </strong>{{product.price | currency: USD}}</div>
+                <div class="product-category"><strong class="mobile-label">Category: </strong>{{getProductCategoryName(product.categoryId)}}</div>
+              </div>
+              <div class="product-actions">
+                <div class="product-action-group">
+                  <a (click)="showActions(product.id)" title="Options" class="actions-toggle"><fa-icon [icon]="faEllipsisV"></fa-icon></a>
+                  <a (click)="hideActions()" title="Close" class="close-actions"><fa-icon [icon]="faTimes"></fa-icon></a>
+                </div>
+                <div class="product-action-group actions-box">
+                  <a routerLink="/products/{{product.id}}" title="View" class="product-action"><span>View</span> <fa-icon [icon]="faEye"></fa-icon></a>
+                  <a routerLink="/products/{{product.id}}/edit" title="Edit" class="product-action"><span>Edit</span> <fa-icon [icon]="faEdit"></fa-icon></a>
+                  <a routerLink="/products/{{product.id}}/delete" title="Delete" class="product-action"><span>Delete</span> <fa-icon [icon]="faTrash"></fa-icon></a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <ng-template #noProducts>
+          <div class="no-products">
+            <img src="assets/images/no-products.png" />
+            <p>There are no products available as of this moment.</p>
+          </div>
+        </ng-template>
+      </div>
+
+    </div>
+
+  </div>
+
+</main>

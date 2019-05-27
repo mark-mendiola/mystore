@@ -1,0 +1,12 @@
+@import "../../../../../globals";
+
+#add_product_form {
+    background: #FFF;
+    padding: 0 30px 50px;
+}
+
+@media #{$responsive_tablet_mobile} {
+    #add_product_form {
+        @include mobile_lr_pad();
+    }
+}

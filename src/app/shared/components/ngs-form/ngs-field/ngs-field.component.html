@@ -1,0 +1,43 @@
+<ng-template [ngIf]="field">
+
+  <div class="form-field" [ngSwitch]="field.type">
+
+    <app-image-upload
+      *ngSwitchCase="'image-upload'"
+      [settings]="field"
+      [control]="control"
+      (value)="transmitValue($event)"
+    ></app-image-upload>
+
+    <app-select
+      *ngSwitchCase="'select'"
+      [settings]="field"
+      [control]="control"
+      (value)="transmitValue($event)"
+      (isTouched)="validateField()"
+    ></app-select>
+
+    <app-textarea
+      *ngSwitchCase="'textarea'"
+      [settings]="field"
+      [control]="control"
+      (value)="transmitValue($event)"
+      (isTouched)="validateField()"
+    ></app-textarea>
+
+    <app-input
+      *ngSwitchDefault
+      [settings]="field"
+      [control]="control"
+      (value)="transmitValue($event)"
+      (isTouched)="validateField()"
+    ></app-input>
+
+    <div class="message message-error" *ngIf="hasError">
+      <div class="message-icon"><fa-icon [icon]="faInfoCircle"></fa-icon></div>
+      <div class="message-text">Invalid {{field.label}}.</div>
+    </div>
+    
+  </div>
+
+</ng-template>

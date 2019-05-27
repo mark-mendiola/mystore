@@ -1,0 +1,16 @@
+<!-- The header -->
+<header class="page-header">
+
+    <div class="page-heading">
+      <h1 class="page-title">{{title}}</h1>
+    </div>
+  
+    <div class="page-options" *ngIf="options">
+      <div class="page-option" *ngFor="let option of options">
+        <a *ngIf="option.type === 'link'" [class]="'button ' + option.class" [routerLink]="option.link"><fa-icon [icon]="option.icon"></fa-icon> <span>{{option.text}}</span></a>
+        <button *ngIf="option.type === 'button'" [class]="'button ' + option.classes" (click)="triggerCallback($event, option.callback)"><fa-icon [icon]="option.icon"></fa-icon> <span>{{option.text}}</span></button>
+      </div>
+    </div>
+  
+</header>
+<!-- End of the header -->

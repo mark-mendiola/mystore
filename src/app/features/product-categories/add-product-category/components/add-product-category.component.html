@@ -1,0 +1,66 @@
+<!-- The header -->
+<header class="page-header">
+
+  <div class="page-heading">
+    <h1 class="page-title">{{pageTitle}}</h1>
+  </div>
+
+  <div class="page-options">
+    <div class="page-option">
+        <button class="button has-icon icon-left" (click)="goBack()"><fa-icon [icon]="faTimes"></fa-icon> <span>Cancel</span></button>
+    </div>
+    <div class="page-option">
+      <button #publishProduct class="button btn-primary has-icon icon-left" (click)="addProduct({
+        image: product.image,
+        name: productName.value,
+        price: productPrice.value,
+        desc: productDesc.value
+      })"><fa-icon [icon]="faCheck"></fa-icon> <span>Create</span></button>
+    </div>
+  </div>
+
+</header>
+<!-- End of the header -->
+
+<main class="site-main">
+
+  <div id="content" class="site-content">
+
+    <div id="add_product_category_form">
+      
+      <div class="form-fields">
+
+        <div class="fields-section">
+          <div class="form-field product-cat-image-wrap" [ngClass]="productCategory.image ? 'has-image' : ''">
+            <label class="field-label" for="product_image">
+              <img src="assets/images/picture.png" /><br>
+              Select an image
+            </label>
+            <input #productCatImage id="product_cat_image" type="file" accept="image/*" class="field field-file" (change)="setImage(productCatImage.files)" />
+
+            <ng-template [ngIf]="productCategory.image">
+                <label for="product_cat_image">
+                  <img [src]="productCategory.image" class="image-preview" />
+                </label>
+            </ng-template>
+          </div>
+        </div>
+
+        <div class="fields-section">
+          <div class="form-field product-cat-name-wrap">
+            <label class="field-label" for="product_cat_name" [ngClass]="{'field-is-active' : labels.product_cat_name}">Product Category Name</label>
+            <input #productCatName id="product_cat_name" type="text" class="field field-text" (focus)="moveLabel(productCatName.id, true)" (blur)="moveLabel(productCatName.id, productCatName.value)" />
+          </div>
+          <div class="form-field product-cat-desc-wrap">
+            <label class="field-label" for="product_cat_desc" [ngClass]="{'field-is-active' : labels.product_cat_desc}">Product Category Description</label>
+            <textarea #productCatDesc id="product_cat_desc" class="field field-textarea" (focus)="moveLabel(productCatDesc.id, true)" (blur)="moveLabel(productCatDesc.id, productCatDesc.value)"></textarea>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>

@@ -1,0 +1,13 @@
+<app-header
+    [title]="pageTitle"
+    [options]="headerOptions"
+    (callbackEmitter)="executeCallback($event)">
+</app-header>
+
+<div id="edit_product_form">
+    <app-ngs-form
+        [id]="editProductForm"
+        [fields]="fields"
+        (data)="setData($event)"
+    ></app-ngs-form>
+</div>

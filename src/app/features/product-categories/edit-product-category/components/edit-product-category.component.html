@@ -1,0 +1,13 @@
+<ng-template [ngIf]="category">
+
+  <app-header
+    [title]="title + category.name + '&quot;'"
+    [options]="headerOptions"
+    (callbackEmitter)="executeCallback($event)">
+  </app-header>
+
+  <div id="edit_product_category">
+    <app-ngs-form [id]="editProductCategoryForm" [fields]="fields" (data)="setData($event)"></app-ngs-form>
+  </div>
+  
+</ng-template>

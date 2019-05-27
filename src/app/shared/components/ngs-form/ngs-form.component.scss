@@ -1,0 +1,24 @@
+@import "../../../../globals";
+
+.form {
+    display: flex;
+    justify-content: space-between;
+}
+.field-group {
+    flex: 49% 0;
+}
+.form-actions {
+    text-align: right;
+}
+.form-action {
+    display: inline-block;
+}
+
+@media #{$responsive_tablet_mobile} {
+    #add_product_form {
+        @include mobile_lr_pad();
+    }
+    .form {
+        display: block;
+    }
+}

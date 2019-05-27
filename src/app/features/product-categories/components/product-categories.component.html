@@ -1,0 +1,60 @@
+<!-- The header -->
+<app-header
+  [title]="pageTitle">
+</app-header>
+<!-- End of the header -->
+
+<main class="site-main">
+
+  <div id="content" class="site-content">
+
+    <div class="product-categories-page">
+
+      <div id="add_product_category_form">
+        <app-ngs-form
+          [id]="addProductCategoryForm"
+          [fields]="fields" 
+          [actions]="actions"
+          (callbackEmitter)="executeCallback($event)"
+          (data)="setData($event)"
+          [isDone]="isDone"
+          ></app-ngs-form>
+      </div>
+
+      <div class="product-categories-list">
+          <div class="product-categories-wrap">
+              <div class="product-cat-list-headers">
+                <h4 class="product-cat-list-header">Category Name</h4>
+                <h4 class="product-cat-list-header">&nbsp;</h4>
+              </div>
+              <ul class="products-categories" *ngIf="productCategories && productCategories.length; else noProductsCat">
+                <li *ngFor="let productCategory of productCategories" class="product-category" [ngClass]="{'active': actionProductId === productCategory.id}">
+                  <div class="product-category-info">
+                    <div class="product-cat-name"><a routerLink="/product-categories/{{productCategory.id}}">{{productCategory.name}}</a></div>
+                  </div>
+                  <div class="product-category-actions">
+                    <div class="product-category-action-group">
+                      <a (click)="showActions(productCategory.id)" title="Options" class="actions-toggle"><fa-icon [icon]="faEllipsisV"></fa-icon></a>
+                    </div>
+                    <div class="product-category-action-group actions-box">
+                      <a (click)="hideActions()" title="Close" class="close-actions"><fa-icon [icon]="faTimes"></fa-icon></a>
+                      <a routerLink="/product-categories/{{productCategory.id}}/edit" title="Edit" class="product-cat-action"><fa-icon [icon]="faEdit"></fa-icon> <span>Edit</span></a>
+                      <a routerLink="/product-categories/{{productCategory.id}}/delete" title="Delete" class="product-cat-action"><fa-icon [icon]="faTrash"></fa-icon> <span>Delete</span></a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <ng-template #noProductsCat>
+              <div class="no-product-categories">
+                <img src="assets/images/no-categories.png" />
+                <p>There are no products categories.</p>
+              </div>
+            </ng-template>
+      </div>
+
+    </div>
+
+  </div>
+
+</main>

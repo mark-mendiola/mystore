@@ -1,0 +1,35 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { Observable, of } from 'rxjs';
+
+import { Product } from '../../components/product';
+import { ProductCategory } from '../../../product-categories/components/product-category';
+
+const httpOptions = {
+  headers: new HttpHeaders( { 'Content-type': 'application/json' } )
+};
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AddProductService {
+
+  requestUrl = {
+    products: 'api/products',
+    categories: 'api/product_categories'
+  };
+
+  constructor(
+    private http: HttpClient
+  ) { }
+
+  addProduct(data: any): Observable<Product> {
+    return this.http.post<Product>( this.requestUrl.products, data, httpOptions ).pipe();
+  }
+
+  getProductCategories(): Observable<ProductCategory[]> {
+    return this.http.get<ProductCategory[]>(this.requestUrl.categories).pipe();
+  }
+
+}

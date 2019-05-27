@@ -1,0 +1,24 @@
+<div [formGroup]="control">
+
+<label
+  [for]="settings.id"
+  class="field-label"
+  [ngClass]="{'focused' : isFocused}"
+>
+  {{settings.label}}
+</label>
+  
+  <select
+  #{settings.id}
+  [id]="settings.id"
+  [formControlName]="settings.id"
+  [class]="settings.classes"
+  (change)="transmitValue($event)"
+  (focus)="moveLabel($event)"
+  (blur)="moveLabel($event); fieldIsTouched()"
+  >
+  <option *ngFor="let option of settings.options" [value]="option.value" [selected]="settings.value == option.value">{{option.text}}</option>
+</select>
+
+
+</div>

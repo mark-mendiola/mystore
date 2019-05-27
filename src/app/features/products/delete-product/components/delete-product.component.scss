@@ -1,0 +1,16 @@
+#delete_product_form {
+    padding: 0 30px 50px;
+}
+#delete_product_form .form-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+#delete_product_form .form-action {
+    margin: 0 5px;
+}
+#delete_product_form .form-action:first-child {
+    margin-left: 0;
+}
+#delete_product_form .form-action:last-child {
+    margin-right: 0;
+}

@@ -1,0 +1,136 @@
+@import "../../../../globals";
+
+// .coming-soon {
+//     position: absolute;
+//     top: 50%;
+//     left: 60%;
+//     transform: translate(-50%, -50%);
+//     text-align: center;
+// }
+
+.product-categories-page {
+    display: flex;
+    padding: 10px 30px 50px;
+}
+
+#add_product_category_form {
+    flex: 1 0;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+    .form-actions {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+::ng-deep #add_product_category_form {
+    .form {
+        display: block;
+    }
+    .image-upload-wrap {
+        height: 250px;
+    }
+    .field-textarea {
+        height: 100px;
+    }
+}
+
+.product-categories-list {
+    flex: 2 0;
+    margin-left: 20px;
+}
+
+.product-cat-list-headers {
+    display: flex;
+    background: #141f31;
+    padding: 20px;
+    color: #FFF;
+
+    h4 {
+        margin-bottom: 0;
+    }
+
+    .product-cat-list-header {
+        flex: 1 0;
+    }
+}
+.products-categories {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.product-category {
+    display: flex;
+    padding: 20px;
+
+    &:nth-child(even) {
+        background: #F6F6F6;
+    }
+}
+.product-category-info {
+    flex: 1 0;
+}
+.product-category-actions {
+    display: flex;
+    flex: 1 0;
+    align-items: center;
+    justify-content: flex-end;
+}
+.product-category-actions {
+    display: flex;
+    flex: 1 0;
+    align-items: center;
+    justify-content: flex-end;
+
+    a {
+        margin: 0 10px;
+        font-size: 0.85em;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .close-actions, .actions-toggle {
+        display: none;
+    }
+
+    .actions-box {
+        span {
+            display: none;
+        }
+    }
+}
+
+.no-product-categories {
+    margin: 50px 0;
+    text-align: center;
+
+    img {
+        margin-bottom: 10px;
+    }
+}
+
+@media #{$responsive_tablet_mobile} {
+    .product-categories-page {
+        display: block;
+        padding: 0 20px 50px;
+    }
+    #add_product_category_form {
+        box-shadow: none;
+        padding: 0;
+        margin-bottom: 40px;
+    }
+    .product-categories-list {
+        margin-left: 0;
+    }
+    .btn-primary {
+        background: #21a562;
+        padding: 10px 15px;
+        border-bottom: 2px solid #1a5638;
+        color: #FFF;
+    }
+    .button.has-icon span {
+        display: inline;
+    }
+}

@@ -1,0 +1,42 @@
+@import "../../../../../globals";
+
+#edit_product_category {
+    background: #FFF;
+    padding: 0 30px 50px;
+}
+
+.form-fields {
+    display: flex;
+}
+.fields-section {
+    flex: 1 0;
+    align-items: center;
+
+    &:last-child {
+        margin-left: 20px;
+        flex: 2 0;
+    }
+}
+
+.field-group .product-cat-name-wrap {
+    flex: 2 0;
+    position: relative;
+}
+#product_cat_name {
+    font-weight: 700;
+}
+
+@media #{$responsive_tablet_mobile} {
+    .form-fields {
+        display: block;
+    }
+    #edit_product_category_form {
+        @include mobile_lr_pad();
+    }
+    .product-cat-image-wrap .field {
+        height: 200px;
+    }
+    .fields-section:last-child {
+        margin-left: 0;
+    }
+}

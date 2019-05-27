@@ -1,0 +1,122 @@
+@import "../../../../../globals";
+
+.sidebar {
+    height: 100%;
+    width: 20%;
+    background: #141f31;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.site-branding {
+    padding: 30px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    color: #FFF;
+}
+.site-title {
+    margin: 0;
+    font-weight: 300;
+
+    a {
+        color: #FFF;
+    }
+}
+
+.menu-toggle {
+    display: none;
+    padding: 20px;
+}
+.menu-toggle-bar {
+    display: block;
+    height: 2px;
+    width: 20px;
+    background: #FFF;
+    margin-bottom: 5px;
+}
+
+ul.menu,
+ul.submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        a {
+            display: block;
+            padding: 15px 20px;
+            color: #FFF;
+            font-size: 0.95em;
+            letter-spacing: 0.5px;
+            transition: 0.2s ease;
+        }
+        a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        &.has-active-child {
+            background: #1a5638;
+        }
+    }
+}
+ul.menu li a:hover + ul.submenu li a {
+    background: rgba(0,0,0,0.3);
+}
+ul.submenu {
+    background: #202d44;
+    
+    li {
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+
+        a {
+            position: relative;
+            padding: 10px 20px;
+            
+            span {
+                margin-left: 10px;
+            }
+        }
+
+        &.active {
+            background: #21a562;
+        }
+    }
+}
+
+@media #{$responsive_tablet_mobile} {
+
+    .sidebar {
+        display: flex;
+        width: auto;
+        height: auto;
+        position: relative;
+        align-items: center;
+        justify-content: space-between;
+        transition: 0.5s ease;
+
+        &.menu-is-active {
+            left: calc((0% - 100%) + 60px);
+        }
+    }
+    .site-branding {
+        padding: 20px;
+        border-bottom: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    ul.menu {
+        height: 100%;
+        width: calc(100% - 60px);
+        position: fixed;
+        top: 0;
+        left: 100%;
+        z-index: 9;
+        transition: 0.5s ease;
+        background: #141f31;
+    }
+    ul.menu.active {
+        left: 60px;
+    }
+
+}

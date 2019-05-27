@@ -1,0 +1,75 @@
+<div *ngIf="product">
+
+<!-- The header -->
+<header class="page-header">
+
+    <div class="page-heading">
+      <h1 class="page-title">{{pageTitle}}{{product.name}}</h1>
+    </div>
+  
+    <div class="page-options">
+      <div class="page-option">
+          <button class="button has-icon icon-left" (click)="goBack()"><fa-icon [icon]="faTimes"></fa-icon> <span>Cancel</span></button>
+      </div>
+      <div class="page-option">
+        <button class="button btn-primary has-icon icon-left" (click)="updateProduct()"><fa-icon [icon]="faSave"></fa-icon> <span>Save</span></button>
+      </div>
+    </div>
+  
+  </header>
+  <!-- End of the header -->
+  
+  <main class="site-main">
+  
+    <div id="content" class="site-content">
+  
+      <div id="edit_product_form">
+        
+        <div class="form-fields">
+  
+          <div class="fields-section">
+            <div class="form-field product-image-wrap" [ngClass]="product.image ? 'has-image' : ''">
+              <label class="field-label" for="product_image">
+                <img src="assets/images/picture.png" /><br>
+                Select an image
+              </label>
+              <input #productImage id="product_image" type="file" accept="image/*" class="field field-file" (change)="setImage(productImage.files)" />
+  
+              <ng-template [ngIf]="product.image">
+                  <label for="product_image">
+                    <img [src]="product.image" class="image-preview" />
+                  </label>
+              </ng-template>
+            </div>
+          </div>
+  
+          <div class="fields-section">
+            <div class="form-field product-name-wrap">
+              <label class="field-label" for="product_name" [ngClass]="{'field-is-active' : labels.product_name}">Product Name</label>
+              <input #productName [(ngModel)]="product.name" id="product_name" type="text" class="field field-text" (focus)="moveLabel(productName.id, true)" (blur)="moveLabel(productName.id, productName.value)" />
+            </div>
+            <div class="form-field product-price-wrap">
+              <label class="field-label" for="product_price" [ngClass]="{'field-is-active' : labels.product_price}">Price</label>
+              <input #productPrice [(ngModel)]="product.price" id="product_price" type="number" class="field field-number" (focus)="moveLabel(productPrice.id, true)" (blur)="moveLabel(productPrice.id, productPrice.value)" />
+            </div>
+            <div class="form-field product-category-wrap">
+              <label class="field-label" for="product_cat" [ngClass]="{'field-is-active' : labels.product_cat}">Product Category</label>
+              <select #productCat [(ngModel)]="product.categoryId" id="product_cat" type="number" class="field field-number" (focus)="moveLabel(productCat.id, true)" (blur)="moveLabel(productCat.id, productCat.value)">
+                <option *ngFor="let productCategory of productCategories" [value]="productCategory.id">{{productCategory.name}}</option>
+              </select>
+            </div>
+            <div class="form-field product-desc-wrap">
+              <label class="field-label" for="product_desc" [ngClass]="{'field-is-active' : labels.product_desc}">Product Description</label>
+              <textarea #productDesc [(ngModel)]="product.desc" id="product_desc" class="field field-textarea" (focus)="moveLabel(productDesc.id, true)" (blur)="moveLabel(productDesc.id, productDesc.value)"></textarea>
+            </div>
+          </div>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  </main>
+
+</div>

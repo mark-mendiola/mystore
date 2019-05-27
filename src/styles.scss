@@ -1,0 +1,168 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700|Source+Sans+Pro:300,400,700');
+
+@import "globals";
+
+* {
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+}
+body, button, input, select, textarea {
+    color: #333;
+    font-family: 'Lato', sans-serif;
+    font-size: 1em;
+}
+body {
+    margin: 0;
+    position: relative;
+}
+a {
+    color: #333;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+}
+h1 {
+    font-size: 2em;
+}
+h2 {
+    font-size: 1.7em;
+}
+h3 {
+    font-size: 1.3em;
+}
+h4 {
+    font-size: 1em;
+}
+img {
+    max-width: 100%;
+}
+
+.page-header {
+    display: flex;
+    background: #FFF;
+    padding: 25px 30px 30px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.page-title {
+    margin: 0;
+    color: #345b9a;
+    font-weight: 300;
+}
+
+.page-options {
+    display: flex;
+}
+.page-option {
+    margin: 0 10px 0 0;
+}
+.page-option:last-child {
+    margin-right: 0;
+}
+.button {
+    display: block;
+    background: #DDD;
+    padding: 10px 15px;
+    border: 0;
+    border-bottom: 2px solid #AAA;
+    border-radius: 4px;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+.button:hover {
+    color: #333;
+}
+.button.icon-left span {
+    margin-left: 15px;
+}
+.button.icon-right span {
+    margin-right: 15px;
+}
+.btn-primary {
+    background: #21a562;
+    border-bottom-color: #1a5638;
+    color: #FFF;
+}
+.btn-primary:hover {
+    background: #2db771;
+    border-bottom-color: #207d4f;
+}
+
+ul.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+ul.pagination .page-item {
+    margin-right: 8px;
+}
+ul.pagination .page-item:last-child {
+    margin-right: 0;
+}
+ul.pagination a.page-link {
+    display: block;
+    background: none;
+    padding: 5px;
+    border: 0;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    color: #333;
+    text-align: center;
+    transition: 0.2s ease;
+}
+ul.pagination .pagination-prev a.page-link {
+    margin-right: 5px;
+}
+ul.pagination .pagination-next a.page-link {
+    margin-left: 5px;
+}
+ul.pagination li.disabled a.page-link {
+    background: none;
+    border: 0;
+    color: #999;
+}
+ul.pagination li:not(.disabled) a.page-link:hover {
+    background: #CCC;
+}
+ul.pagination li.active a.page-link {
+    background: #141f31;
+    color: #FFF;
+}
+ul.pagination li.active a.page-link:hover {
+    background: #283954;
+    color: #FFF;
+}
+
+@media #{$responsive_tablet_mobile} {
+    h1 {
+        font-size: 1.5em;
+    }
+    h2 {
+        font-size: 1.3em;
+    }
+    .button {
+        background: none;
+        border: 0;
+        padding: 5px 10px;
+
+        &.has-icon span {
+            display: none;
+        }
+    }
+    .btn-primary {
+        color: #21a562;
+    }
+    .page-header {
+        padding: 20px;
+    }
+}

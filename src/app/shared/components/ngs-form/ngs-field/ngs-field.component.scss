@@ -1,0 +1,56 @@
+.form-field {
+    position: relative;
+    margin-bottom: 20px;
+
+    .message {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        z-index: 1;
+        transform: translate(-50%, -50%);
+
+        .message-icon {
+            color: #c71c1c;
+            cursor: pointer;
+        }
+
+        .message-text {
+            display: none;
+            position: absolute;
+            right: -8px;
+            background: #c71c1c;
+            padding: 10px 15px;
+            margin-top: 8px;
+            color: #FFF;
+            white-space: nowrap;
+
+            &::after {
+                display: block;
+                content: "";
+                position: absolute;
+                bottom: 100%;
+                right: 9px;
+                border: 7px solid transparent;
+                border-bottom-color: #c71c1c;
+            }
+        }
+
+        &:hover .message-text {
+            display: block;
+        }
+    }
+}
+.field-group {
+    .form-field {
+        flex: 1 0;
+        margin-left: 10px;
+        margin-right: 10px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

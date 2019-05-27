@@ -1,0 +1,93 @@
+<!-- The header -->
+<header class="page-header">
+
+  <div class="page-heading">
+    <h1 class="page-title">{{pageTitle}}</h1>
+  </div>
+
+</header>
+<!-- End of the header -->
+
+<main class="site-main">
+
+  <div id="content" class="site-content">
+
+    <div class="product-categories-page">
+
+      <div id="add_product_category_form">
+            
+        <div class="form-fields">
+  
+            <div class="form-field product-cat-image-wrap" [ngClass]="productCategory.image ? 'has-image' : ''">
+              <label class="field-label" for="product_image">
+                <img src="assets/images/picture.png" /><br>
+                Select an image
+              </label>
+              <input #productCatImage id="product_cat_image" type="file" accept="image/*" class="field field-file" (change)="setImage(productCatImage.files)" />
+  
+              <ng-template [ngIf]="productCategory.image">
+                  <label for="product_cat_image">
+                    <img [src]="productCategory.image" class="image-preview" />
+                  </label>
+              </ng-template>
+            </div>
+            <div class="form-field product-cat-name-wrap">
+              <label class="field-label" for="product_cat_name" [ngClass]="{'field-is-active' : labels.product_cat_name}">Product Category Name</label>
+              <input #productCatName id="product_cat_name" type="text" class="field field-text" (focus)="moveLabel(productCatName.id, true)" (blur)="moveLabel(productCatName.id, productCatName.value)" ([ngModel])="productCategory.name" />
+            </div>
+            <div class="form-field product-cat-desc-wrap">
+              <label class="field-label" for="product_cat_desc" [ngClass]="{'field-is-active' : labels.product_cat_desc}">Product Category Description</label>
+              <textarea #productCatDesc id="product_cat_desc" class="field field-textarea" (focus)="moveLabel(productCatDesc.id, true)" (blur)="moveLabel(productCatDesc.id, productCatDesc.value)" ([ngModel])="productCategory.desc"></textarea>
+            </div>
+  
+        </div>
+            
+        <div class="form-actions">
+          <div class="form-action">
+              <button #publishProductCategory class="button btn-primary has-icon icon-left" (click)="addProductCategory({
+                image: productCategory.image,
+                name: productCatName.value,
+                desc: productCatDesc.value
+              }); productCategory.image = ''; productCatName.value=''; productCatDesc.value='';"><fa-icon [icon]="faPlus"></fa-icon> <span>Create</span></button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="product-categories-list">
+          <div class="product-categories-wrap">
+              <div class="product-cat-list-headers">
+                <h4 class="product-cat-list-header">Category Name</h4>
+                <h4 class="product-cat-list-header">&nbsp;</h4>
+              </div>
+              <ul class="products-categories" *ngIf="productCategories && productCategories.length; else noProductsCat">
+                <li *ngFor="let productCategory of productCategories" class="product-category" [ngClass]="{'active': actionProductId === productCategory.id}">
+                  <div class="product-category-info">
+                    <div class="product-cat-name"><a routerLink="/product-categories/{{productCategory.id}}">{{productCategory.name}}</a></div>
+                  </div>
+                  <div class="product-category-actions">
+                    <div class="product-category-action-group">
+                      <a (click)="showActions(productCategory.id)" title="Options" class="actions-toggle"><fa-icon [icon]="faEllipsisV"></fa-icon></a>
+                    </div>
+                    <div class="product-category-action-group actions-box">
+                      <a (click)="hideActions()" title="Close" class="close-actions"><fa-icon [icon]="faTimes"></fa-icon></a>
+                      <a routerLink="/product-categories/{{productCategory.id}}/edit" title="Edit" class="product-cat-action"><fa-icon [icon]="faEdit"></fa-icon> <span>Edit</span></a>
+                      <a routerLink="/product-categories/{{productCategory.id}}/delete" title="Delete" class="product-cat-action"><fa-icon [icon]="faTrash"></fa-icon> <span>Delete</span></a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <ng-template #noProductsCat>
+              <div class="no-product-categories">
+                <img src="assets/images/no-categories.png" />
+                <p>There are no products categories.</p>
+              </div>
+            </ng-template>
+      </div>
+
+    </div>
+
+  </div>
+
+</main>

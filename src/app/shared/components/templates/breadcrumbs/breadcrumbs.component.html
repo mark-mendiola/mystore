@@ -1,0 +1,11 @@
+<ul class="breadcrumbs">
+  <li class="breadcrumb bc-home">
+    <a href="/"><fa-icon [icon]="faHome"></fa-icon></a>
+    <!-- <ng-template *ngIf="breadcrumbs"> -->
+      <span class="bc-separator">&#187;</span>
+    <!-- </ng-template> -->
+  </li>
+  <li class="breadcrumb" *ngFor="let breadcrumb of breadcrumbs">
+    <a href="{{breadcrumb.url}}">{{breadcrumb.label}}</a>
+  </li>
+</ul>

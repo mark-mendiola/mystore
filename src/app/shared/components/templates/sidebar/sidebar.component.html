@@ -1,0 +1,35 @@
+<aside id="left_sidebar" class="sidebar" [ngClass]="{'menu-is-active': menuIsVisible}">
+
+  <!-- The branding -->
+  <div class="site-branding">
+    <h1 class="site-title"><a routerLink="/">{{options.title}}</a></h1>
+  </div>
+  <!-- End of the branding -->
+
+  <!-- The responsive menu toggle -->
+  <div class="menu-toggle" (click)="toggleMenu()">
+    <i class="menu-toggle-bar"></i>
+    <i class="menu-toggle-bar"></i>
+    <i class="menu-toggle-bar"></i>
+  </div>
+  <!-- End of the responsive menu toggle -->
+
+  <!-- The main navigation -->
+  <ul class="menu" [ngClass]="{'active': menuIsVisible}">
+    <li class="menu-item" data-icon="package" routerLinkActive="has-active-child">
+      <a routerLink="/products" (click)="toggleMenu()">Products</a>
+
+      <ul class="submenu">
+        <li class="menu-item" routerLinkActive="active" data-icon="package">
+          <a routerLink="/products" (click)="toggleMenu()"><fa-icon [icon]="faChevronCircleRight"></fa-icon><span>All Products</span></a>
+        </li>
+        <li class="menu-item" routerLinkActive="active" data-icon="">
+          <a routerLink="/product-categories" (click)="toggleMenu()"><fa-icon [icon]="faChevronCircleRight"></fa-icon><span>Categories</span></a>
+        </li>
+      </ul>
+      
+    </li>
+  </ul>
+  <!-- End of the main navigation -->
+
+</aside>

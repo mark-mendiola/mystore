@@ -1,0 +1,30 @@
+<div [formGroup]="control" class="image-upload-wrap" [ngClass]="hasImage() ? 'has-image' : ''">
+  
+  <label
+    [for]="settings.id"
+    class="field-label"
+  >
+    <img src="assets/images/picture.png" /><br>
+    Select an image
+  </label>
+
+  <input
+    #{settings.id}
+    [id]="settings.id"
+    type="file"
+    accept="image/*"
+    [class]="settings.classes"
+    (change)="setImage($event)"
+  />
+
+  <ng-template
+    [ngIf]="hasImage()"
+  >
+    <label [for]="settings.id">
+      <img
+        [src]="tempImage"
+        class="image-preview"
+      />
+    </label>
+  </ng-template>
+</div>

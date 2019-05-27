@@ -1,0 +1,23 @@
+.field-label {
+    background: #FFF;
+    padding: 0 10px;
+    position: absolute;
+    top: 18px;
+    left: 10px;
+    color: #777;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.2s ease;
+
+    &.focused {
+        top: -8px;
+    }
+}
+.field {
+    width: 100%;
+    height: 200px;
+    padding: 15px;
+    border: 1px solid #DDD;
+    resize: none;
+}

@@ -1,0 +1,14 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "title": "hello"
+        }
+    ],
+    "product_categories": [
+        {
+            "id": 1,
+            "title": "hi"
+        }
+    ]
+}
