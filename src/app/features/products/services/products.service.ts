@@ -12,14 +12,12 @@ import { ProductCategory } from '../../product-categories/components/product-cat
 export class ProductsService {
 
   requestUrl = {
-    products: 'https://my-json-server.typicode.com/mark-mendiola/mystore/products',
-    categories: 'https://my-json-server.typicode.com/mark-mendiola/mystore/product_categories',
+    products: 'https://localhost:3000/products',
+    categories: 'https://localhost:3000/product_categories',
   };
 
   constructor(
     private http: HttpClient
-    // private productEnv: ProductEnv,
-    // private productCatEnv: ProductCatEnv
   ) {
   }
 
@@ -28,7 +26,6 @@ export class ProductsService {
   }
 
   searchProducts(term: string): Observable<Product[]> {
-    console.log(term);
     if (!term.trim() || term === undefined) {
       return this.getProducts();
     }
