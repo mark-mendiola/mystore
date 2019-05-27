@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
-/* 3rd Party Modules and Services */
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './services/external/in-memory-data/in-memory-data.service';
+/* Data Handling */
+// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { InMemoryDataService } from './services/external/in-memory-data/in-memory-data.service';
 
 /* Project Modules and Components */
 import { SharedRoutingModule } from './shared-routing.module';
@@ -41,11 +41,11 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     CommonModule,
     SharedRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, {
-        dataEncapsulation: false
-      }
-    ),
+    // HttpClientInMemoryWebApiModule.forRoot(
+    //   InMemoryDataService, {
+    //     dataEncapsulation: false
+    //   }
+    // ),
     ReactiveFormsModule,
     FontAwesomeModule,
     PaginationModule.forRoot()

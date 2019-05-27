@@ -12,13 +12,16 @@ import { ProductCategory } from '../../product-categories/components/product-cat
 export class ProductsService {
 
   requestUrl = {
-    products: 'api/products',
-    categories: 'api/product_categories',
+    products: 'https://my-json-server.typicode.com/mark-mendiola/mystore/products',
+    categories: 'https://my-json-server.typicode.com/mark-mendiola/mystore/product_categories',
   };
 
   constructor(
     private http: HttpClient
-  ) { }
+    // private productEnv: ProductEnv,
+    // private productCatEnv: ProductCatEnv
+  ) {
+  }
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.requestUrl.products).pipe();

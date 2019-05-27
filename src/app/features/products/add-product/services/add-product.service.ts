@@ -3,8 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 
-import { Product } from '../../components/product';
-import { ProductCategory } from '../../../product-categories/components/product-category';
+import { Product, ProductEnv } from '../../components/product';
+import { ProductCategory, ProductCatEnv } from '../../../product-categories/components/product-category';
 
 const httpOptions = {
   headers: new HttpHeaders( { 'Content-type': 'application/json' } )
@@ -16,8 +16,8 @@ const httpOptions = {
 export class AddProductService {
 
   requestUrl = {
-    products: 'api/products',
-    categories: 'api/product_categories'
+    products: 'https://my-json-server.typicode.com/mark-mendiola/mystore/products',
+    categories: 'https://my-json-server.typicode.com/mark-mendiola/mystore/product_categories',
   };
 
   constructor(

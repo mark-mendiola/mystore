@@ -19,3 +19,7 @@ export class ProductProperties {
         };
     }
 }
+
+export class ProductEnv {
+    dataURL = 'https://my-json-server.typicode.com/mark-mendiola/mystore/products';
+}

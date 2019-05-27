@@ -4,3 +4,7 @@ export class ProductCategory {
     image: any;
     desc: string;
 }
+
+export class ProductCatEnv {
+    dataURL = 'https://my-json-server.typicode.com/mark-mendiola/mystore/product_categories';
+}
