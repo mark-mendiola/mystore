@@ -3,8 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 
-import { Product, ProductEnv } from '../../components/product';
-import { ProductCategory, ProductCatEnv } from '../../../product-categories/components/product-category';
+import { Product } from '../../components/product';
+import { ProductCategory } from '../../../product-categories/components/product-category';
 
 const httpOptions = {
   headers: new HttpHeaders( { 'Content-type': 'application/json' } )
@@ -25,7 +25,7 @@ export class AddProductService {
   ) { }
 
   addProduct(data: any): Observable<Product> {
-    return this.http.post<Product>( this.requestUrl.products, data, httpOptions ).pipe();
+    return this.http.post<Product>( this.requestUrl.products, data ).pipe();
   }
 
   getProductCategories(): Observable<ProductCategory[]> {
