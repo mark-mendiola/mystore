@@ -16,7 +16,7 @@ const httpOptions = {
 export class AddProductService {
 
   requestUrl = {
-    products: 'https://my-json-server.typicode.com/mark-mendiola/mystore/products',
+    products: 'https://localhost:3000/products',
     categories: 'https://my-json-server.typicode.com/mark-mendiola/mystore/product_categories',
   };
 
@@ -25,7 +25,7 @@ export class AddProductService {
   ) { }
 
   addProduct(data: any): Observable<Product> {
-    return this.http.post<Product>( this.requestUrl.products, data ).pipe();
+    return this.http.post<Product>(this.requestUrl.products, data, httpOptions).pipe();
   }
 
   getProductCategories(): Observable<ProductCategory[]> {
