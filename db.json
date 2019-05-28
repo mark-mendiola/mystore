@@ -7,6 +7,13 @@
       "price": 50,
       "categoryId": 0,
       "desc": "Test"
+    },
+    {
+      "image": "",
+      "name": "Tomato",
+      "price": "25",
+      "desc": "Test",
+      "id": 2
     }
   ],
   "product_categories": []
