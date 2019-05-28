@@ -1,14 +1,13 @@
 {
-    "products": [
-        {
-            "id": 1,
-            "name": "Huawei Phone",
-            "image": "",
-            "price": 50,
-            "categoryId": 0,
-            "desc": "Test"
-        }
-    ],
-    "product_categories": [
-    ]
+  "products": [
+    {
+      "id": 1,
+      "name": "Huawei Phone",
+      "image": "",
+      "price": 50,
+      "categoryId": 0,
+      "desc": "Test"
+    }
+  ],
+  "product_categories": []
 }

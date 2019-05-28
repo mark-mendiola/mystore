@@ -158,6 +158,8 @@ export class AddProductComponent implements OnInit {
   addProduct(): void {
     if (!this.product.name) { return; }
 
+    this.product.image = '';
+
     this.aps.addProduct(this.product)
       .subscribe(
         () => this.goBack()
