@@ -16,7 +16,7 @@ const httpOptions = {
 export class AddProductService {
 
   requestUrl = {
-    products: ':3000/products',
+    products: '/:3000/products',
     categories: '//my-json-server.typicode.com/mark-mendiola/mystore/product_categories',
   };
 
